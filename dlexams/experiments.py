@@ -170,8 +170,8 @@ callbacks = [
 tf.keras.callbacks.EarlyStopping(patience=3, restore_best_weights=True),
 tf.keras.callbacks.LearningRateScheduler(lambda epoch: 1e-3 * 10**-(epoch / 10))
 ]
-
 history=model.fit(x_train, y_train, epochs=20, validation_split=0.2, callbacks=callbacks)
+import matplotlib.pyplot as plt
 plt.plot(history.history['loss'])
 plt.title('Model loss')
 plt.xlabel('Epoch')
