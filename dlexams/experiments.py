@@ -172,7 +172,12 @@ tf.keras.callbacks.LearningRateScheduler(lambda epoch: 1e-3 * 10**-(epoch / 10))
 ]
 
 history=model.fit(x_train, y_train, epochs=20, validation_split=0.2, callbacks=callbacks)
-plot(history)""",
+plt.plot(history.history['loss'])
+plt.title('Model loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.show()
+""",
     "exp5": """import tensorflow as tf
 import tensorflow_datasets as tfds
 import matplotlib.pyplot as plt
