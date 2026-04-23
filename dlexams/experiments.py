@@ -293,10 +293,16 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(10, activation='softmax')
 ])
 # 3. Compile & Fit
+import matplotlib.pyplot as plt
 model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
               loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 history=model.fit(x_train,y_train,epochs=10,validation_data=(x_test,y_test))
-plot(history)""",
+
+plt.plot(history.history['loss'])
+plt.title('Model loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.show()""",
 }
 
 def show(exp_name=None, run=False):
